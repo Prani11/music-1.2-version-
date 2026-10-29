@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c0d12">
+  <title>Sonora — Music for every mood</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Sonora home"><span class="brand-mark">♫</span><span>sonora</span></a>
+      <div class="nav-label">MENU</div>
+      <nav class="main-nav">
+        <button class="nav-item active" data-view="home"><span>⌂</span> Home</button>
+        <button class="nav-item" data-view="search"><span>⌕</span> Search</button>
+        <button class="nav-item" data-view="library"><span>▤</span> Your Library</button>
+      </nav>
+      <div class="nav-label playlist-label">YOUR COLLECTION <button id="newPlaylist" title="Create playlist">＋</button></div>
+      <nav class="playlist-nav">
+        <button class="nav-item" data-view="liked"><span class="heart-icon">♥</span> Liked Songs</button>
+        <button class="nav-item" data-view="chill"><span class="playlist-dot purple"></span> Late Night Chill</button>
+        <button class="nav-item" data-view="focus"><span class="playlist-dot blue"></span> Deep Focus</button>
+        <button class="nav-item" data-view="energy"><span class="playlist-dot orange"></span> Good Energy</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="upgrade-card"><div class="upgrade-icon">✦</div><strong>Your music, your mood.</strong><p>Pick a track and make the moment yours.</p><button id="shuffleAll">Shuffle play ↗</button></div>
+        <div class="profile-row"><div class="avatar">S</div><div><strong>Guest listener</strong><small>Free experience</small></div><span class="online-dot"></span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="history-buttons"><button aria-label="Back" id="goBack">‹</button><button aria-label="Forward" id="goForward">›</button></div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="What do you want to listen to?" autocomplete="off"><kbd>⌘ K</kbd></div>
+        <a class="guest-pill" href="login.html" aria-label="Sign in to Sonora"><span class="guest-dot"></span> Listening as guest <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <section class="welcome-row" id="welcome">
+        <div><p class="eyebrow">MONDAY MOOD · YOUR DAILY MIX</p><h1>Feel every <span>frequency.</span></h1><p class="welcome-sub">A little music can change everything. Find your next favorite sound.</p></div>
+        <div class="hero-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="hero-note">♫</div><div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      </section>
+
+      <section class="quick-picks">
+        <div class="quick-pick" role="button" tabindex="0" data-track="0"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=120&h=120&fit=crop" alt=""><span>Midnight City</span><button class="quick-play" data-play="0" aria-label="Play Midnight City">▶</button></div>
+        <div class="quick-pick" role="button" tabindex="0" data-track="1"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=120&h=120&fit=crop" alt=""><span>Electric Dreams</span><button class="quick-play" data-play="1" aria-label="Play Electric Dreams">▶</button></div>
+        <div class="quick-pick" role="button" tabindex="0" data-track="2"><img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=120&h=120&fit=crop" alt=""><span>Golden Hour</span><button class="quick-play" data-play="2" aria-label="Play Golden Hour">▶</button></div>
+        <div class="quick-pick" role="button" tabindex="0" data-track="3"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=120&h=120&fit=crop&sat=-40" alt=""><span>Slow Motion</span><button class="quick-play" data-play="3" aria-label="Play Slow Motion">▶</button></div>
+        <div class="quick-pick" role="button" tabindex="0" data-track="4"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=120&h=120&fit=crop" alt=""><span>After Hours</span><button class="quick-play" data-play="4" aria-label="Play After Hours">▶</button></div>
+        <div class="quick-pick" role="button" tabindex="0" data-track="5"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=120&h=120&fit=crop" alt=""><span>Blue Skies</span><button class="quick-play" data-play="5" aria-label="Play Blue Skies">▶</button></div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading"><div><p class="eyebrow">MADE FOR YOU</p><h2>Featured playlists</h2></div><button class="text-button" id="seeAll">See all <span>↗</span></button></div>
+        <div class="playlist-grid" id="playlistGrid">
+          <article class="playlist-card" data-playlist="chill"><div class="cover cover-purple"><div class="cover-shape"></div><span class="cover-symbol">☾</span></div><div class="card-meta"><h3>Late Night Chill</h3><p>Soft sounds for slower moments</p></div><button class="card-play" data-play="3" aria-label="Play Late Night Chill">▶</button></article>
+          <article class="playlist-card" data-playlist="energy"><div class="cover cover-orange"><div class="cover-sun"></div><span class="cover-symbol">✳</span></div><div class="card-meta"><h3>Good Energy</h3><p>Turn up the brightness</p></div><button class="card-play" data-play="1" aria-label="Play Good Energy">▶</button></article>
+          <article class="playlist-card" data-playlist="focus"><div class="cover cover-blue"><div class="cover-ring"></div><span class="cover-symbol">◉</span></div><div class="card-meta"><h3>Deep Focus</h3><p>Find your flow state</p></div><button class="card-play" data-play="5" aria-label="Play Deep Focus">▶</button></article>
+          <article class="playlist-card" data-playlist="discover"><div class="cover cover-pink"><div class="cover-star">✦</div><span class="cover-symbol">∞</span></div><div class="card-meta"><h3>Fresh Finds</h3><p>New sounds to explore</p></div><button class="card-play" data-play="2" aria-label="Play Fresh Finds">▶</button></article>
+        </div>
+      </section>
+
+      <section class="content-section tracks-section">
+        <div class="section-heading"><div><p class="eyebrow">YOUR NEXT REPEAT</p><h2 id="trackHeading">Trending right now</h2></div><button class="text-button" id="showLiked">♥ Liked songs</button></div>
+        <div class="track-table">
+          <div class="track-table-head"><span>#</span><span>Title</span><span>Album</span><span>Duration</span><span></span></div>
+          <div id="trackList"></div>
+        </div>
+      </section>
+      <footer><span>SONORA</span><span>Song previews provided by the iTunes catalog</span><span>♫ &nbsp; Keep listening</span></footer>
+    </main>
+  </div>
+
+  <div class="player-bar">
+    <div class="now-playing"><img id="currentCover" alt="Current track cover"><div class="now-text"><strong id="currentTitle">Loading music…</strong><span id="currentArtist">Apple Music catalog</span></div><button id="likeCurrent" class="like-button" aria-label="Like current song">♡</button></div>
+    <div class="player-center"><div class="player-controls"><button id="shuffleBtn" title="Shuffle">⤨</button><button id="prevBtn" title="Previous">◀|</button><button id="playBtn" class="main-play" title="Play">▶</button><button id="nextBtn" title="Next">|▶</button><button id="repeatBtn" title="Repeat">↻</button></div><div class="progress-row"><span id="currentTime">0:00</span><input type="range" id="progress" min="0" max="100" value="0" aria-label="Track progress"><span id="duration">0:00</span></div></div>
+    <div class="player-extra"><span>♫</span><input type="range" id="volume" min="0" max="1" step="0.01" value="0.7" aria-label="Volume"><button id="queueBtn" title="Queue">☷</button></div>
+  </div>
+  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
